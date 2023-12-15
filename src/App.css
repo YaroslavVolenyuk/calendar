@@ -24,15 +24,11 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 body {
   display: flex;
   margin-top: 50px;
   justify-content: center;
-  background-color: #fffcff;
+  background-color: #e8e8e8;
 }
 button {
   width: 75px;
@@ -49,11 +45,26 @@ button {
 #container {
   width: 770px;
 }
+
+@media screen and (max-width: 900px) {
+  #container {
+    width: 370px;
+    margin-left: 10px;
+  }
+}
+
 #weekdays {
   width: 100%;
   display: flex;
   color: #000000;
 }
+
+@media screen and (max-width: 900px) {
+  #weekdays {
+    display: none;
+  }
+}
+
 #weekdays div {
   width: 100px;
   padding: 10px;
@@ -64,6 +75,7 @@ button {
   display: flex;
   flex-wrap: wrap;
 }
+
 .day {
   width: 100px;
   padding: 10px;
@@ -77,6 +89,15 @@ button {
   flex-direction: column;
   justify-content: space-between;
 }
+
+@media screen and (max-width: 900px) {
+  .day {
+    width: 50px;
+    padding: 5px;
+    height: 50px;
+  }
+}
+
 .day:hover {
   background-color: #dfdfdf;
 }
@@ -97,4 +118,43 @@ button {
   cursor: default !important;
   background-color: #fffcff !important;
   box-shadow: none !important;
+}
+
+#modalBackDrop {
+  top: 15%;
+  left: 0;
+  z-index: 10;
+  width: 300px;
+  height: 500px;
+  position: absolute;
+  background-color: #ffffff;
+}
+
+#new-event-parent {
+  display: flex;
+  background-color: #ffffff;
+  justify-content: right;
+  flex-direction: column;
+  align-items: center;
+
+  height: 300px;
+  width: 300px;
+  top: 15%;
+  right: 0;
+  z-index: 10;
+  position: absolute;
+}
+
+#new-event-modal {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: right;
+  align-items: center;
+  background-color: #f7f7f7d3;
+  padding: 10px;
+}
+
+#label {
+  padding: 3px;
 }

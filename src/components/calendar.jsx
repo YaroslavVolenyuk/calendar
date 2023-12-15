@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { eventData } from '../eventData';
 import Modal from './modal';
+import NewEvent from './newEvent';
 
 const Calendar = () => {
   const [openModal, setOpenModal] = useState(null);
@@ -73,7 +74,6 @@ const Calendar = () => {
     );
   };
 
-  // navigation
   const goToNextMonth = () => {
     setNav(nav + 1);
   };
@@ -87,16 +87,22 @@ const Calendar = () => {
     }
   };
 
+  const handleNewEventClick = () => {
+    setOpenNewEvent(true);
+  };
+
   return (
     <div id="container">
-      <div>
+      <div id="monthDisplay">
         <button id="backButton" onClick={goToPrevMonth}>
           Back
         </button>
         <button id="nextButton" onClick={goToNextMonth}>
           Next
         </button>
-        <button id="createButton">Create</button>
+        <button id="createButton" onClick={() => handleNewEventClick()}>
+          Create
+        </button>
       </div>
 
       <div>{currentMonth}</div>
@@ -128,6 +134,13 @@ const Calendar = () => {
       </div>
       {openModal && (
         <Modal events={events} day={openModal} setOpenModal={setOpenModal} />
+      )}
+      {openNewEvent && (
+        <NewEvent
+          events={events}
+          setEvents={setEvents}
+          setOpenNewEvent={setOpenNewEvent}
+        />
       )}
     </div>
   );
